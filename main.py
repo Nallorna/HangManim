@@ -20,6 +20,8 @@ class cTextbox(Textbox):
         "active_color": BLUE_D,
         "deactive_color": BLACK,
     }
+    def box_on_mouse_press(self, mob, event_data):
+        pass
 
 class cNumberPlane(NumberPlane):
     CONFIG = {
@@ -164,24 +166,25 @@ class HangManim(Scene):
 
     def on_key_press(self, symbol, modifiers):
         char = chr(symbol)
+
         if self.input.isActive and not self.animationon:
             old_value = self.input.get_value()
             new_value = old_value
-            if char.isalpha():
+            if old_value in self.wordclass.guessed:
+               new_value = ""
+            elif char.isalpha():
                 new_value = old_value + char.upper()
-            elif symbol in [PygletWindowKeys.SPACE]:
-                new_value = old_value + char
             elif symbol == PygletWindowKeys.BACKSPACE:
                 new_value = old_value[:-1] or ''
-            elif symbol == PygletWindowKeys.ENTER:
+            elif symbol == PygletWindowKeys.ENTER and old_value:
                 new_value = ""
                 self.answer()
             self.input.set_value(new_value)
 
             return False
 
-    def answer(self,):
-        guess = self.input.get_value().replace(" ", "").upper()
+    def answer(self):
+        guess = self.input.get_value().upper()
         self.input.set_value("")
         if len(guess) != 1:
             correct = guess == self.wordclass
@@ -237,3 +240,10 @@ class HangManim(Scene):
         self.pendinganimations.append(FadeTransformPieces(self.health, new_word))
 
         return new_word
+
+    def on_mouse_motion(self, point, d_point):
+        pass
+    def on_mouse_drag(self, point, d_point, buttons, modifiers):
+        pass
+    def on_mouse_scroll(self, point, offset):
+        pass
