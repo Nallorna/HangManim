@@ -54,5 +54,7 @@ Den huvudsakliga fördelen är det estetiska. Programmet ser bra ut och animerin
 ### Nackdelar
 Manim är den största begränsningen. Mycket funktionalitet såsom olika spelare, bestämma eget ord, köra om spelet samt en förklaring till hur spelet fungerar blev antigen oerhört svårt eller opartiskt.  Olika antal spelare hade försämrat prestandan väsentligt och öka risken för att programmet kraschar på grund av överbelastning. Det skulle också vara svårt att använda samma knappt, i detta fall ”enter”, för att göra olika saker. Då strukturen är för en video blir det svårt att ha flera olika ”sidor” i programmet vilket försvårar konstruktionen av en huvudmeny etc. 
 
+## Övrigt
+För att köra programmet måste man köra det i terminalen
 
 
